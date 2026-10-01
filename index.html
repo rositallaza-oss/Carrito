@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ramo de Hot Wheels</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- PANTALLA 1: INICIO -->
+  <div id="screen-start" class="screen active">
+    <div class="start-card">
+      <img src="carrito2.png" alt="Hot Wheels Main" class="car-start-img">
+      <h2 class="tap-text">TOCA PARA INICIAR</h2>
+    </div>
+  </div>
+
+  <!-- PANTALLA 2: CARGA -->
+  <div id="screen-loading" class="screen">
+    <h1 class="loading-title">Cargando el desmadre...<br>aquí no hay espectadores 🏎️🔥</h1>
+    
+    <div class="progress-container">
+      <div class="progress-bar" id="progress-bar">
+        <img src="carrito1.webp" class="car-loading-icon" alt="Car">
+      </div>
+    </div>
+    
+    <div class="percentage" id="percentage-text">0%</div>
+  </div>
+
+  <!-- PANTALLA 3: GALERÍA CON ESTRELLAS Y FLORES ANIMADAS -->
+  <div id="screen-gallery" class="screen">
+    <!-- Contenedor de estrellas fugaces de fondo -->
+    <div class="stars-container" id="stars-container"></div>
+
+    <!-- Resplandor neón -->
+    <div class="glow-bg"></div>
+
+    <!-- TÍTULO Y NOMBRE DEL GRUPITO -->
+    <div class="header-container">
+      <h1 class="main-title">¡Prohibido ser espectador!<br>Arranquen los motores 🏁</h1>
+      <span class="group-name">✨ Una entre muchos ✨</span>
+    </div>
+    
+    <!-- Túnel donde flotan tus carros -->
+    <div class="tunnel-container" id="tunnel-container"></div>
+
+    <!-- RAMO DE FLORES CON MOVIMIENTO Y GLOW -->
+    <div class="bouquet-container floating-flower">
+      <div class="flower-glow"></div>
+      <svg viewBox="0 0 300 320" class="flowers-svg">
+        <!-- Partículas de brillo en el ramo -->
+        <circle cx="150" cy="80" r="3" fill="#00d2ff" class="sparkle s1"/>
+        <circle cx="90" cy="110" r="2" fill="#ffffff" class="sparkle s2"/>
+        <circle cx="210" cy="110" r="2.5" fill="#00d2ff" class="sparkle s3"/>
+        <circle cx="120" cy="150" r="3" fill="#ffffff" class="sparkle s1"/>
+        <circle cx="180" cy="150" r="2" fill="#00d2ff" class="sparkle s2"/>
+
+        <!-- Tallos -->
+        <path d="M150 300 Q140 210 100 130" stroke="#1b4d3e" stroke-width="6" fill="none"/>
+        <path d="M150 300 Q150 190 150 100" stroke="#1b4d3e" stroke-width="7" fill="none"/>
+        <path d="M150 300 Q160 210 200 130" stroke="#1b4d3e" stroke-width="6" fill="none"/>
+        <path d="M150 300 Q120 230 70 160" stroke="#1b4d3e" stroke-width="5" fill="none"/>
+        <path d="M150 300 Q180 230 230 160" stroke="#1b4d3e" stroke-width="5" fill="none"/>
+
+        <!-- Hojas -->
+        <path d="M130 220 Q100 210 110 235 Z" fill="#2d7a62"/>
+        <path d="M170 220 Q200 210 190 235 Z" fill="#2d7a62"/>
+
+        <!-- Lazo / Moño Azul -->
+        <path d="M120 260 C100 235 90 280 150 265 C210 280 200 235 180 260 Z" fill="#00d2ff" filter="drop-shadow(0 0 8px #00d2ff)"/>
+        <path d="M135 265 L120 300 L140 295 Z" fill="#0088ff"/>
+        <path d="M165 265 L180 300 L160 295 Z" fill="#0088ff"/>
+        <circle cx="150" cy="262" r="7" fill="#ffffff"/>
+
+        <!-- Flor Central -->
+        <g transform="translate(150, 100)" class="flower-head">
+          <circle cx="0" cy="-25" r="15" fill="#00d2ff"/>
+          <circle cx="25" cy="0" r="15" fill="#00d2ff"/>
+          <circle cx="0" cy="25" r="15" fill="#00d2ff"/>
+          <circle cx="-25" cy="0" r="15" fill="#00d2ff"/>
+          <circle cx="-18" cy="-18" r="15" fill="#0088ff"/>
+          <circle cx="18" cy="-18" r="15" fill="#0088ff"/>
+          <circle cx="18" cy="18" r="15" fill="#0088ff"/>
+          <circle cx="-18" cy="18" r="15" fill="#0088ff"/>
+          <circle cx="0" cy="0" r="13" fill="#0d1117" stroke="#00d2ff" stroke-width="2"/>
+        </g>
+
+        <!-- Flor Izquierda -->
+        <g transform="translate(100, 130) scale(0.85)" class="flower-head">
+          <circle cx="0" cy="-25" r="15" fill="#00d2ff"/>
+          <circle cx="25" cy="0" r="15" fill="#00d2ff"/>
+          <circle cx="0" cy="25" r="15" fill="#00d2ff"/>
+          <circle cx="-25" cy="0" r="15" fill="#00d2ff"/>
+          <circle cx="-18" cy="-18" r="15" fill="#0088ff"/>
+          <circle cx="18" cy="-18" r="15" fill="#0088ff"/>
+          <circle cx="18" cy="18" r="15" fill="#0088ff"/>
+          <circle cx="-18" cy="18" r="15" fill="#0088ff"/>
+          <circle cx="0" cy="0" r="13" fill="#0d1117" stroke="#00d2ff" stroke-width="2"/>
+        </g>
+
+        <!-- Flor Derecha -->
+        <g transform="translate(200, 130) scale(0.85)" class="flower-head">
+          <circle cx="0" cy="-25" r="15" fill="#00d2ff"/>
+          <circle cx="25" cy="0" r="15" fill="#00d2ff"/>
+          <circle cx="0" cy="25" r="15" fill="#00d2ff"/>
+          <circle cx="-25" cy="0" r="15" fill="#00d2ff"/>
+          <circle cx="-18" cy="-18" r="15" fill="#0088ff"/>
+          <circle cx="18" cy="-18" r="15" fill="#0088ff"/>
+          <circle cx="18" cy="18" r="15" fill="#0088ff"/>
+          <circle cx="-18" cy="18" r="15" fill="#0088ff"/>
+          <circle cx="0" cy="0" r="13" fill="#0d1117" stroke="#00d2ff" stroke-width="2"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #030712;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.screen.active {
+  display: flex;
+}
+
+/* Pantalla 1: Inicio */
+#screen-start {
+  cursor: pointer;
+}
+
+.start-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.car-start-img {
+  width: 230px;
+  filter: drop-shadow(0 0 25px #ff2a00);
+}
+
+.tap-text {
+  margin-top: 25px;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  color: #00d2ff;
+  text-shadow: 0 0 15px #00d2ff, 0 0 30px #00d2ff;
+}
+
+/* Pantalla 2: Carga */
+.loading-title {
+  font-size: 1.8rem;
+  margin-bottom: 40px;
+  color: #00d2ff;
+  text-shadow: 0 0 15px #00d2ff;
+}
+
+.progress-container {
+  width: 80%;
+  max-width: 330px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  position: relative;
+  border: 1px solid rgba(0, 210, 255, 0.5);
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+}
+
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #0055ff, #00d2ff);
+  border-radius: 10px;
+  position: relative;
+  transition: width 0.1s linear;
+}
+
+.car-loading-icon {
+  position: absolute;
+  right: -20px;
+  top: -18px;
+  width: 45px;
+  transform: scaleX(-1);
+  filter: drop-shadow(0 0 8px #00d2ff);
+}
+
+.percentage {
+  margin-top: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #00d2ff;
+  text-shadow: 0 0 10px #00d2ff;
+}
+
+/* --- ESTRELLAS FUGACES DE FONDO --- */
+.stars-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.shooting-star {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(-45deg, rgba(0, 210, 255, 1), rgba(255, 255, 255, 0));
+  filter: drop-shadow(0 0 6px #00d2ff);
+  animation: starTail 2.5s ease-in-out infinite;
+  opacity: 0;
+}
+
+@keyframes starTail {
+  0% {
+    width: 0px;
+    opacity: 0;
+    transform: translateX(0) translateY(0) rotate(-45deg);
+  }
+  30% {
+    width: 100px;
+    opacity: 1;
+  }
+  100% {
+    width: 0px;
+    opacity: 0;
+    transform: translateX(-400px) translateY(400px) rotate(-45deg);
+  }
+}
+
+/* Pantalla 3: Galería */
+.glow-bg {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(0, 210, 255, 0.25) 0%, rgba(255, 0, 128, 0.15) 50%, rgba(0,0,0,0) 70%);
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  filter: blur(25px);
+  z-index: 1;
+}
+
+/* Contenedor del Título y Subtítulo */
+.header-container {
+  position: absolute;
+  top: 25px;
+  z-index: 10;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-title {
+  position: relative;
+  top: 0;
+  font-size: 1.5rem;
+  color: #00d2ff;
+  text-shadow: 0 0 15px #00d2ff, 0 0 30px #00d2ff;
+  width: 100%;
+  text-align: center;
+}
+
+/* Estilo para el nombre del grupito: Una entre muchos */
+.group-name {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.2rem;
+  color: #ff0055;
+  text-shadow: 0 0 10px #ff0055, 0 0 20px #ff0055;
+  margin-top: 6px;
+}
+
+.tunnel-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* Carros flotantes */
+.floating-item {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: moveTunnel 4.5s linear infinite;
+  opacity: 0;
+  z-index: 3;
+}
+
+.car-user-img {
+  width: 160px;
+  height: auto;
+  max-height: 110px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 12px #00d2ff) drop-shadow(0 0 25px rgba(255, 0, 128, 0.6));
+  border-radius: 8px;
+}
+
+.floating-item span {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.4rem;
+  color: #ffffff;
+  text-shadow: 0 0 10px #ff0055, 0 0 20px #ff0055, 0 0 30px #ff0055;
+  margin-top: 8px;
+  white-space: nowrap;
+}
+
+/* --- RAMO DE FLORES CON MOVIMIENTO Y BALANCEO (MÁS GRANDE) --- */
+.bouquet-container {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.floating-flower {
+  animation: floatSway 4s ease-in-out infinite alternate;
+}
+
+@keyframes floatSway {
+  0% {
+    transform: translateX(-50%) translateY(0px) rotate(-2deg);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px) rotate(1deg);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-4px) rotate(2deg);
+  }
+}
+
+.flower-glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(0, 210, 255, 0.6) 0%, rgba(0, 85, 255, 0.25) 60%, transparent 80%);
+  filter: blur(35px);
+  bottom: 50px;
+  animation: glowPulse 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+  0% { opacity: 0.6; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1.1); }
+}
+
+.flowers-svg {
+  width: 380px;   /* Flores más grandes */
+  height: 410px;  /* Flores más grandes */
+  filter: drop-shadow(0 0 18px rgba(0, 210, 255, 0.9));
+}
+
+.sparkle {
+  animation: sparkleAnim 1.5s infinite alternate ease-in-out;
+}
+.s1 { animation-delay: 0s; }
+.s2 { animation-delay: 0.5s; }
+.s3 { animation-delay: 1s; }
+
+/* Animaciones generales */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes sparkleAnim {
+  0% { opacity: 0.2; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1.4); }
+}
+
+@keyframes moveTunnel {
+  0% {
+    transform: scale(0.1) translateY(-250px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.3) translateY(280px);
+    opacity: 0;
+  }
+}
